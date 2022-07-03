@@ -1,0 +1,27 @@
+{
+  "name": "collectif-beesta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:tailwind": "npx tailwindcss build assets/css/input.css -o assets/css/tailwind.css",
+    "watch:tailwind": "npx tailwindcss -i assets/css/input.css -o assets/css/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FourneauxThibaut/collectif-beesta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FourneauxThibaut/collectif-beesta/issues"
+  },
+  "homepage": "https://github.com/FourneauxThibaut/collectif-beesta#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.1.4"
+  },
+  "dependencies": {
+    "daisyui": "^2.17.0"
+  }
+}

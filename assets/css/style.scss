@@ -1,0 +1,323 @@
+$pink: #EA7A78;
+$cream: #ffe9d6;
+$darkgrey: #404040;
+$lightgrey: #707070;
+$white: #FFFFFF;
+
+@font-face {
+	font-family: 'Braah';
+	src: url('../fonts/Braah-Regular.eot') format('embedded-opentype'),
+	     url('../fonts/Braah-Regular.woff') format('woff'),
+	     url('../fonts/Braah.ttf')  format('truetype'),
+	     url('../fonts/Braah-Regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    display: swap;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    color: $lightgrey;
+    letter-spacing: 1px;
+}
+body{
+    background-color: $cream;
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif !important;
+}
+header, nav{
+    background-color: $cream;
+    z-index: 999;
+}
+nav{
+    height: 9rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    font-family: 'Braah';
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Braah';
+    font-weight: normal;
+    font-style: normal; 
+}
+
+/*Styling logo*/
+.logo{
+    display: flex;
+    align-items: center;
+    margin-left: 7%;
+    text-align: center;
+
+    & img {
+        height: 3.8rem;
+        width: 3.8rem;
+    }
+    & p {
+        position: relative;
+        margin-top: 0.3rem;
+        margin-left: 1rem;
+        font-size: 2.1rem;
+        color: $pink;
+
+        &::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0.22rem;
+            left: 0.22rem;
+            color: $darkgrey;
+            z-index: -2;
+        }
+    }
+}
+
+/*Styling Links*/
+.nav-links{
+    display: flex;
+    list-style: none;
+    width: 65%;
+    padding: 0 0.7vw;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: capitalize;
+}
+.nav-links li a{
+    position: relative;
+    font-size: 1.35rem;
+    text-decoration: none;
+    transition: all 0.6s ease-in-out;
+
+    &.active{
+        color: $pink;
+    }
+
+    &:hover{
+        color: $pink;
+        transition: all 0.4s ease-in-out;
+    }
+}
+
+/*Styling Hamburger Icon*/
+.hamburger div{
+    width: 30px;
+    height:3px;
+    background: $darkgrey;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+.hamburger{
+    display: none;
+}
+
+/*Stying for small screens*/
+@media screen and (max-width: 800px){
+    nav{
+        position: fixed;
+    }
+    .hamburger{
+        display:block;
+        position: absolute;
+        cursor: pointer;
+        right: 7%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 80;
+        transition: all 0.7s ease;
+    }
+    .nav-links{
+        position: fixed;
+        background: $pink;
+        height: 100vh;
+        width: 100%;
+        transform: scale(110%);
+        flex-direction: column;
+        clip-path: circle(50px at 150% -20%);
+        -webkit-clip-path: circle(50px at 150% -20%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+        z-index: 90;
+    }
+    .nav-links.open{
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+    .nav-links li{
+        margin: -95vh 0 -60vh 0;
+        padding: 0 0 0 0;
+        opacity: 0;
+        color: $cream;
+
+        & a.active{
+            color: $darkgrey;
+        }
+    
+        & a:hover{
+            color: $darkgrey;
+            transition: all 0.4s ease-in-out;
+        }
+    }
+    .nav-links li:nth-child(1){
+        transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(2){
+        transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3){
+        transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(4){
+        transition: all 0.5s ease 0.7s;
+    }
+    .nav-links li:nth-child(5){
+        transition: all 0.5s ease 0.8s;
+    }
+    .nav-links li:nth-child(6){
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+    .nav-links li:nth-child(7){
+        transition: all 0.5s ease 1s;
+        margin: 0;
+    }
+    li.fade{
+        opacity: 1;
+    }
+}
+/*Animating Hamburger Icon on Click*/
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+    transition: all 0.7s ease;
+    width:0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
+
+main{
+    position: absolute;
+    top: 9rem;
+    width: 100%;
+}
+
+#open-book{
+    padding: 4.5rem;
+    margin: auto;
+    position: relative;
+    background-color: $white;
+    border: 2px solid $darkgrey;
+    border-radius: 0.25rem;
+    width: 82%;
+
+    &::after{
+        content: '';
+        position: absolute;
+        border-radius: 0.25rem;
+        top: 1.5rem;
+        left: 1.5rem;
+        width: 100%;
+        height: 100%;
+        background-color: $darkgrey;
+        z-index: -2;
+    }
+
+    h1{
+        margin: 0 auto 2rem;
+        max-width: 60%;
+        text-align: center;
+        font-size: 1.85rem;
+        color: $darkgrey;
+    }
+
+    p{
+        text-align: justify;
+    }
+
+    button{
+        font-family: Braah sans-serif;
+        font-size: 0.95rem;
+        position: relative;
+        margin: 3.5rem 0 1rem;
+        padding: 0.5rem 0.7rem;
+        color: $darkgrey;
+        z-index: 99;
+        transition: all 0.1s ease-in-out;
+
+        &:hover{
+            transform: translate(0.5rem, 0.5rem);
+            transition: all 0.1s ease-in-out;
+
+            &::after{
+                top: 0;
+                left: 0;
+                transition-duration: 0.1s;
+            }
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $white;
+            border: 2px solid $darkgrey;
+            border-radius: 0.25rem;
+            z-index: -2;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            border-radius: 0.25rem;
+            top: 0.5rem;
+            left: 0.5rem;
+            width: 100%;
+            height: 100%;
+            background-color: $darkgrey;
+            z-index: -99;
+            transition-duration: 0.1s;
+        }
+
+        &.red-btn{
+            color: $white;
+
+            &::before{
+                background-color: $pink;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px){
+    #work{
+        font-size: 0.85rem;
+    }
+    #open-book{
+        margin-left: -2vh;
+        width: 110%;
+    }
+    #book-list{
+        margin-left: 10vh;
+        width: 90%;
+    }
+}
+    
+@media screen and (max-width: 1050px){
+    #open-book{
+        width: 105%;
+    }
+    #book-list{
+        width: 100%;
+        margin-left: 0vh;
+    }
+}
